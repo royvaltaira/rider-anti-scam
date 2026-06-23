@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royval Anti Scam | Edisi 2026</title>
+    <style>
+        /* CSS Vanilla - Tema Piala Dunia 2026 (Warna terang, Neon, Dinamik) */
+        :root {
+            --wc-primary: #D80027; /* Merah */
+            --wc-secondary: #0033A0; /* Biru */
+            --wc-accent1: #009A44; /* Hijau */
+            --wc-accent2: #5C068C; /* Ungu */
+            --wc-neon: #00f0ff; /* Neon Biru */
+            --bg-dark: #0f172a;
+            --text-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at top right, rgba(0, 51, 160, 0.4), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(216, 0, 39, 0.4), transparent 40%),
+                url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header-container {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo-text {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--wc-primary), var(--wc-neon), var(--wc-accent1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 4px 15px rgba(0, 240, 255, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.5s ease-out;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--wc-accent2);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        input[type="text"], input[type="tel"], input[type="password"], textarea {
+            width: 100%;
+            padding: 14px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--wc-neon);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--wc-secondary), var(--wc-accent2));
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-approve { background-color: var(--wc-accent1); }
+        .btn-reject { background-color: var(--wc-primary); }
+        .btn-logout { background-color: transparent; border: 1px solid var(--wc-primary); color: var(--wc-primary); padding: 5px 10px; font-size: 0.9rem;}
+        .btn-logout:hover { background-color: var(--wc-primary); color: white; }
+
+        /* Kotak mesej kejayaan/ralat */
+        .message-box {
+            display: none;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: bold;
+            animation: fadeIn 0.3s ease;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .message-success { background-color: rgba(0, 154, 68, 0.9); border: 1px solid var(--wc-accent1); color: white; }
+        .message-error { background-color: rgba(216, 0, 39, 0.9); border: 1px solid var(--wc-primary); color: white; }
+
+        /* Senarai Laporan */
+        .report-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid var(--wc-neon);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.2s;
+        }
+
+        .report-card.admin-view {
+            border-left: 4px solid var(--wc-primary);
+            background: rgba(92, 6, 140, 0.2);
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .scammer-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--wc-neon);
+        }
+
+        .report-date { font-size: 0.8rem; color: #64748b; }
+        .report-details { color: #cbd5e1; font-size: 0.95rem; line-height: 1.4; margin-top: 10px;}
+        
+        .badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+        .badge-pending { background: #f59e0b; color: #fff; }
+        .badge-approved { background: var(--wc-accent1); color: #fff; }
+
+        .admin-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        .hidden { display: none !important; }
+
+        .user-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Animasi */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @media (max-width: 600px) {
+            .logo-text { font-size: 2.5rem; }
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1 class="logo-text">ROYVAL</h1>
+        <div class="subtitle">⚽ Sistem Pemantauan Anti Scam Grab (Edisi Dunia 2026) 🏆</div>
+    </div>
+
+    <div id="msgBox" class="message-box"></div>
+
+    <!-- SEKSYEN LOG MASUK -->
+    <div id="loginSection" class="container">
+        <h2 class="section-title">🔑 Log Masuk</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="phoneNumber">ID Pengguna / Nombor Telefon</label>
+                <input type="text" id="phoneNumber" placeholder="Contoh: 0123456789" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Katalaluan (Biarkan kosong untuk pengguna awam)</label>
+                <input type="password" id="loginPassword" placeholder="Masukkan katalaluan jika ada" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-submit">Masuk</button>
+        </form>
+    </div>
+
+    <!-- SEKSYEN APLIKASI UTAMA (Disembunyikan sebelum log masuk) -->
+    <div id="appSection" class="hidden" style="width: 100%; max-width: 700px;">
+        
+        <div class="user-panel">
+            <div>Log masuk sebagai: <strong id="userDisplay" style="color: var(--wc-neon);"></strong></div>
+            <button id="btnLogout" class="btn btn-logout">Log Keluar</button>
+        </div>
+
+        <!-- PANEL ADMIN (Hanya papar jika admin) -->
+        <div id="adminPanel" class="container hidden" style="border-color: var(--wc-accent2);">
+            <h2 class="section-title" style="color: #e879f9;">🛡️ Panel Kelulusan Admin</h2>
+            <div id="pendingReportsList">
+                <!-- Senarai pending masuk sini -->
+            </div>
+        </div>
+
+        <!-- BORANG LAPORAN -->
+        <div class="container">
+            <h2 class="section-title">🚨 Laporkan Penipu (Scammer)</h2>
+            <form id="scamForm">
+                <div class="form-group">
+                    <label for="scammerName">Nama Penuh Scammer / Pemandu / Penumpang</label>
+                    <input type="text" id="scammerName" placeholder="Contoh: Ali Bin Abu" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label>Area Scam Berlaku</label>
+                    <div class="form-row">
+                        <div style="flex: 1; margin-bottom: 10px;">
+                            <input type="text" id="scammerCity" placeholder="Bandar (Contoh: Shah Alam)" autocomplete="off" required>
+                        </div>
+                        <div style="flex: 1; margin-bottom: 10px;">
+                            <input type="text" id="scammerState" placeholder="Negeri (Contoh: Selangor)" autocomplete="off" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="incidentDesc">Butiran Kejadian Penipuan</label>
+                    <textarea id="incidentDesc" placeholder="Sila ceritakan bagaimana penipuan Grab ini berlaku secara ringkas..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">⚽ Hantar Laporan</button>
+            </form>
+        </div>
+
+        <!-- SENARAI LAPORAN AWAM -->
+        <div class="container">
+            <h2 class="section-title">📋 Laporan Terkini</h2>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <input type="text" id="searchInput" placeholder="🔍 Cari nama scammer atau butiran..." autocomplete="off">
+            </div>
+            <div id="publicReportsList">
+                <!-- Data laporan awam masuk sini -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- PENGURUSAN DATA (STATE) ---
+        let currentUser = null; // Boleh jadi nombor telefon atau 'admin'
+        let reports = [
+            // Data demo awal
+            {
+                id: 1,
+                scammerName: "John Doe",
+                city: "Kuala Lumpur",
+                state: "W.P. Kuala Lumpur",
+                desc: "Minta transfer duit sebelum ambil penumpang, lepas tu cancel ride.",
+                date: new Date().toLocaleString('ms-MY'),
+                status: "approved",
+                submittedBy: "0199999999"
+            }
+        ];
+
+        // --- ELEMEN DOM ---
+        const loginSection = document.getElementById('loginSection');
+        const appSection = document.getElementById('appSection');
+        const adminPanel = document.getElementById('adminPanel');
+        const loginForm = document.getElementById('loginForm');
+        const scamForm = document.getElementById('scamForm');
+        const btnLogout = document.getElementById('btnLogout');
+        const msgBox = document.getElementById('msgBox');
+        const searchInput = document.getElementById('searchInput');
+        
+        const pendingReportsList = document.getElementById('pendingReportsList');
+        const publicReportsList = document.getElementById('publicReportsList');
+        const userDisplay = document.getElementById('userDisplay');
+
+        // --- FUNGSI UTILITI ---
+        function showMessage(message, isSuccess) {
+            msgBox.textContent = message;
+            msgBox.style.display = 'block';
+            msgBox.className = isSuccess ? 'message-box message-success' : 'message-box message-error';
+            setTimeout(() => { msgBox.style.display = 'none'; }, 4000);
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+            }[tag]));
+        }
+
+        // --- FUNGSI RENDER UI ---
+        function updateUI() {
+            if (!currentUser) {
+                // Mod Log Keluar
+                loginSection.classList.remove('hidden');
+                appSection.classList.add('hidden');
+                document.getElementById('phoneNumber').value = '';
+            } else {
+                // Mod Log Masuk
+                loginSection.classList.add('hidden');
+                appSection.classList.remove('hidden');
+                userDisplay.textContent = currentUser === 'admin' ? 'Pentadbir Sistem' : currentUser;
+                
+                if (currentUser === 'admin') {
+                    adminPanel.classList.remove('hidden');
+                } else {
+                    adminPanel.classList.add('hidden');
+                }
+                
+                renderReports();
+            }
+        }
+
+        function renderReports() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            // Kosongkan kontena
+            pendingReportsList.innerHTML = '';
+            publicReportsList.innerHTML = '';
+
+            let hasPending = false;
+            let hasPublic = false;
+
+            // Loop semua laporan dari yang terbaru
+            const sortedReports = [...reports].reverse();
+
+            sortedReports.forEach(report => {
+                const isMatch = report.scammerName.toLowerCase().includes(searchTerm) || 
+                                report.desc.toLowerCase().includes(searchTerm) ||
+                                report.city.toLowerCase().includes(searchTerm) ||
+                                report.state.toLowerCase().includes(searchTerm);
+
+                // --- LOGIK PANEL ADMIN (PENDING) ---
+                if (currentUser === 'admin' && report.status === 'pending') {
+                    hasPending = true;
+                    pendingReportsList.appendChild(createAdminCard(report));
+                }
+
+                // --- LOGIK SENARAI AWAM ---
+                // Paparkan jika status 'approved' ATAU (status 'pending' tapi dipos oleh user yang sedang login)
+                if ((report.status === 'approved' || (report.status === 'pending' && report.submittedBy === currentUser)) && isMatch) {
+                    hasPublic = true;
+                    publicReportsList.appendChild(createPublicCard(report));
+                }
+            });
+
+            // Empty states
+            if (currentUser === 'admin' && !hasPending) {
+                pendingReportsList.innerHTML = '<div style="text-align:center; color:#94a3b8;">Tiada laporan menunggu kelulusan.</div>';
+            }
+            if (!hasPublic) {
+                publicReportsList.innerHTML = '<div style="text-align:center; color:#94a3b8;">Tiada rekod dijumpai.</div>';
+            }
+        }
+
+        // Bina Kad Untuk Admin
+        function createAdminCard(report) {
+            const div = document.createElement('div');
+            div.className = 'report-card admin-view';
+            div.innerHTML = `
+                <div class="report-header">
+                    <div class="scammer-name">🛑 ${escapeHTML(report.scammerName)}</div>
+                    <div>
+                        <span class="badge badge-pending">Menunggu</span>
+                    </div>
+                </div>
+                <div style="font-size: 0.8rem; color: #94a3b8;">Pelapor: ${escapeHTML(report.submittedBy)} | ${report.date}</div>
+                <div style="color: var(--wc-accent1); font-size: 0.85rem; font-weight: bold; margin-top:5px;">
+                    Kawasan: ${escapeHTML(report.city)}, ${escapeHTML(report.state)}
+                </div>
+                <div class="report-details">"${escapeHTML(report.desc)}"</div>
+                <div class="admin-actions">
+                    <button class="btn btn-approve" onclick="approveReport(${report.id})">Luluskan (Approve)</button>
+                    <button class="btn btn-reject" onclick="rejectReport(${report.id})">Tolak (Reject)</button>
+                </div>
+            `;
+            return div;
+        }
+
+        // Bina Kad Untuk Senarai Awam
+        function createPublicCard(report) {
+            const div = document.createElement('div');
+            div.className = 'report-card';
+            
+            let badgeHTML = report.status === 'approved' 
+                ? `<span class="badge badge-approved">Disahkan</span>`
+                : `<span class="badge badge-pending">Menunggu Semakan</span>`;
+
+            let adminDeleteBtn = currentUser === 'admin' 
+                ? `<button class="btn btn-reject" style="margin-top: 15px; padding: 5px 10px; font-size: 0.8rem;" onclick="deleteReport(${report.id})">🗑️ Padam Laporan</button>` 
+                : '';
+
+            div.innerHTML = `
+                <div class="report-header">
+                    <div class="scammer-name">🛑 ${escapeHTML(report.scammerName)}</div>
+                    ${badgeHTML}
+                </div>
+                <div class="report-date">${report.date}</div>
+                <div style="color: var(--wc-accent1); font-size: 0.85rem; font-weight: bold; margin-top:5px;">
+                    Kawasan: ${escapeHTML(report.city)}, ${escapeHTML(report.state)}
+                </div>
+                <div class="report-details">"${escapeHTML(report.desc)}"</div>
+                ${adminDeleteBtn}
+            `;
+            return div;
+        }
+
+        // --- FUNGSI-FUNGSI AKSI ---
+
+        // Log Masuk
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            
+            if (phone.toLowerCase() === 'admin') {
+                if (password === 'admin123') {
+                    currentUser = 'admin';
+                    showMessage("Berjaya log masuk sebagai Admin", true);
+                    updateUI();
+                } else {
+                    showMessage("Katalaluan Admin salah!", false);
+                }
+            } else if (phone) {
+                currentUser = phone;
+                showMessage(`Berjaya log masuk sebagai ${phone}`, true);
+                updateUI();
+            }
+        });
+
+        // Log Keluar
+        btnLogout.addEventListener('click', () => {
+            currentUser = null;
+            updateUI();
+        });
+
+        // Hantar Laporan
+        scamForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('scammerName').value.trim();
+            const city = document.getElementById('scammerCity').value.trim() || 'Tidak dinyatakan';
+            const state = document.getElementById('scammerState').value.trim() || 'Tidak dinyatakan';
+            const desc = document.getElementById('incidentDesc').value.trim();
+
+            if (!name || !desc) {
+                showMessage("Sila isikan Nama dan Butiran Kejadian!", false);
+                return;
+            }
+
+            // Cipta objek laporan
+            const newReport = {
+                id: Date.now(),
+                scammerName: name,
+                city: city,
+                state: state,
+                desc: desc,
+                date: new Date().toLocaleString('ms-MY'),
+                status: currentUser === 'admin' ? 'approved' : 'pending', // Admin post terus approved
+                submittedBy: currentUser
+            };
+
+            reports.push(newReport);
+            scamForm.reset();
+            searchInput.value = ''; // Reset carian
+            
+            showMessage(currentUser === 'admin' ? "Laporan terus disahkan." : "Laporan direkodkan & menunggu kelulusan Admin.", true);
+            renderReports();
+        });
+
+        // Carian
+        searchInput.addEventListener('input', renderReports);
+
+        // Aksi Admin (Mesti letak di window supaya boleh dipanggil dari string HTML onclick)
+        window.approveReport = function(id) {
+            const report = reports.find(r => r.id === id);
+            if (report) {
+                report.status = 'approved';
+                showMessage("Laporan berjaya diluluskan.", true);
+                renderReports();
+            }
+        };
+
+        window.rejectReport = function(id) {
+            reports = reports.filter(r => r.id !== id);
+            showMessage("Laporan telah ditolak dan dipadam.", true);
+            renderReports();
+        };
+
+        window.deleteReport = function(id) {
+            reports = reports.filter(r => r.id !== id);
+            showMessage("Laporan berjaya dipadam dari rekod awam.", true);
+            renderReports();
+        };
+
+        // Inisialisasi awal
+        updateUI();
+
+    </script>
+</body>
+</html>
